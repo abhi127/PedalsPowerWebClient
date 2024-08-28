@@ -1,0 +1,57 @@
+<section class="slider">
+    <div class="slider-container">
+        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlideIndex"
+            [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h2 class="text-white fw-semibold mb-3 hero-title">{{ slide.title }}</h2>
+                <!-- <p>{{ slide.description }}</p> -->
+
+                <p class="font-size-14">
+                    {{ slide.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section scroll-animation" id="our-story">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">About Us</div>
+                    <h4 class="viewAllHallOfFame">Who are we and what is our vision?</h4>
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 story-desc scroll-animation">
+            <p>
+                At our core, we aim to empower individuals to prioritize and maintain excellent 
+                health. Through our challenges, we motivate participants to strive for ongoing 
+                wellness and peak physical condition.
+                <br><br>
+                We set clear, achievable goals that serve as milestones on their journey to 
+                optimal health. By encouraging commitment and perseverance, we foster habits that 
+                promote long-term well-being. Our approach emphasizes personalized goals tailored to 
+                individual needs, ensuring each participant receives targeted support in achieving 
+                their health objectives.
+                <br><br>
+                Whether through fitness achievements, nutritional milestones, or mindfulness 
+                practices, our challenges are designed to cultivate a holistic approach to health. 
+                We believe in empowering individuals not only to reach their health goals but also 
+                to sustain them, fostering a lifestyle where well-being is a priority.
+                <br><br>
+                Join us in this journey towards a healthier, more vibrant life, where every 
+                challenge conquered contributes to a stronger, more resilient you.
+            </p>
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>

@@ -1,0 +1,320 @@
+<section class="slider">
+    <div class="slider-container">
+        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlideIndex"
+            [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h2 class="text-white fw-semibold mb-3 hero-title">{{ slide.title }}</h2>
+                <!-- <p>{{ slide.description }}</p> -->
+
+                <p class="font-size-14">
+                    {{ slide.description }}
+                </p>
+
+                <div class="button-items mt-4">
+                    <a href="javascript: void(0);" class="btn btn-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hall of fame -->
+<section class="section" id="hall-of-fame">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Happy Winners</div>
+                    <h4 class="viewAllHallOfFame">Hall of Fame</h4>
+                    <a href="javascript:void(0)"><span class="viewAllHallOfFame">View All</span></a>
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12">
+            <app-gallery-lightbox [images]="images"></app-gallery-lightbox>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+
+<!-- Testimonial start -->
+<section class="section bg-white scroll-animation" id="testimonial">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Testimonial</div>
+                    <h4>Experience of Participants</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <div class="row mt-4">
+            <div class="col-lg-12 scroll-animation">
+                <div class="hori-timeline">
+                  <owl-carousel-o [options]="timelineCarousel" class="events navs-carousel">
+                    <ng-container *ngFor="let item of carouselItems">
+                      <ng-template carouselSlide>
+                        <div class="item event-list">
+                          <div>
+                            <div class="event-date">
+                              <div class="col-lg-12">
+                                <div>
+                                  <img [src]="item.image" alt="" class="rounded-circle avatar-lg" style="margin: auto; width: auto;">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="event-down-icon">
+                              <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                            </div>
+                            <div class="mt-3 px-3">
+                              <div class="review-star-icon">
+                                <img [src]="item.stars" alt="" style="display: initial; width: 100px;">
+                              </div>
+                              <p class="text-muted">{{ item.review }}</p>
+                              <blockquote>-{{ item.reviewer }}</blockquote>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                  </owl-carousel-o>
+                </div>
+              </div>
+              
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+<!-- Medals and tshirts -->
+<section class="section scroll-animation" id="medals-and-tshirts">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Medals</div>
+                    <h4>Medals and T-shirts</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 scroll-animation">
+            <app-gallery-lightbox [images]="medals"></app-gallery-lightbox>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+<!-- Challenge Rule -->
+<section class="section scroll-animation" id="challenge">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Challenge</div>
+                    <h4>Challenge Rules</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 scroll-animation">
+            <div class="parallax">
+                <div class="">
+
+                    <div class="">
+                        <div class="">
+
+                            <div class="row challenge-row">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header bg-transparent border-bottom ">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="features-number fw-semibold display-4 me-3 chRuleHead">01
+                                                </div>
+                                                <h4 class="mb-0 chRuleHead">Complete Choosen Distance</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="card-blockquote mb-0">
+                                                <p class="chRuleDesc">
+                                                    Complete your chosen distance in the given duration of the event.
+                                                </p>
+
+                                                <!-- <footer class="blockquote-footer font-size-12 mt-0">
+                                                Someone famous in <cite title="Source Title">Source Title</cite>
+                                            </footer> -->
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header bg-transparent border-bottom">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="features-number fw-semibold display-4 me-3 chRuleHead">02
+                                                </div>
+                                                <h4 class="mb-0 chRuleHead"> Record your activity</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="card-blockquote mb-0">
+                                                <p class="chRuleDesc">
+                                                    Record your activity in any fitness app (STRAVA Recommended)
+                                                </p>
+
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header bg-transparent border-bottom ">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="features-number fw-semibold display-4 me-3 chRuleHead">03
+                                                </div>
+                                                <h4 class="mb-0 chRuleHead"> Choose Days, Place or Distance</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="card-blockquote mb-0">
+                                                <p class="chRuleDesc">
+                                                    You are free to choose the days, place
+                                                    (indoors or outdoors), and the distance you want to
+                                                    complete on any particular day.
+                                                </p>
+
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header bg-transparent border-bottom ">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="features-number fw-semibold display-4 me-3 chRuleHead">04
+                                                </div>
+                                                <h4 class="mb-0 chRuleHead">Required minimum distance is 5 KM</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="card-blockquote mb-0">
+                                                <p class="chRuleDesc">
+                                                    Participants has to ride a minimum distance of 5 KM
+                                                    for an activity to be considered for the challenge.
+                                                    Less than 5 KM won't be counted.
+                                                </p>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header bg-transparent border-bottom ">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="features-number fw-semibold display-4 me-3 chRuleHead">05
+                                                </div>
+                                                <h4 class="mb-0 chRuleHead">Two rides are accepted in a day</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="card-blockquote mb-0">
+                                                <p class="chRuleDesc">
+                                                    In a day, a maximum of two rides are accepted.
+                                                    If you do more than 2, then only the first two will
+                                                    be counted towards the challenge.
+                                                </p>
+
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header bg-transparent border-bottom ">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="features-number fw-semibold display-4 me-3 chRuleHead">06
+                                                </div>
+                                                <h4 class="mb-0 chRuleHead">95% of your chosen target is compulsory</h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <blockquote class="card-blockquote mb-0">
+                                                <p class="chRuleDesc">
+                                                    If you have registered for the medal category then
+                                                    it is mandatory to complete up to 95% of your chosen
+                                                    target to be eligible for medal. If you fail to
+                                                    complete 95% of your selected target then you won't
+                                                    be receiving the finisher's medal.
+                                                </p>
+
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+
+
+<!-- FAQ -->
+<section class="section scroll-animation" id="faq">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">FAQ</div>
+                    <h4>Frequently Asked Questions</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 scroll-animation">
+            <div>
+                <div class="accordion-container">
+                    <div class="accordion-item" *ngFor="let item of accordionData; let i = index" (click)="toggleAccordion(i)">
+                      <div class="accordion-header" [class.active]="selectedIndex === i">
+                        <h3>{{ item.title }}</h3>
+                        <i style="color: #999;" [class]="selectedIndex === i ? 'bx bx-chevron-up' : 'bx bx-chevron-down'"></i>
+                      </div>
+                      <div class="accordion-content" [class.show]="selectedIndex === i">
+                        <p [innerHTML]="item.content"></p>
+                      </div>
+                    </div>
+                  </div>
+                  
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+

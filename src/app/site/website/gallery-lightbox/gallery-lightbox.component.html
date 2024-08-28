@@ -1,0 +1,27 @@
+<div class="gallery-container">
+    <!-- Image Tile Gallery -->
+    <div class="gallery-tiles">
+        <div *ngFor="let image of images; let i = index" class="gallery-tile" (click)="openLightbox(i)">
+            <img [src]="image.url" [alt]="image.alt" />
+            <!-- <div class="challenge-desc" [innerHTML]="image.caption"></div> -->
+
+            <div [ngStyle]="{'min-height': isCondition1() ? '55%' : isCondition2() ? '20%' : 'auto' }"
+                class="challenge-desc" [innerHTML]="image.caption"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox Preview -->
+    <div class="lightbox-content-container">
+        <div class="lightbox" *ngIf="isLightboxOpen">
+            <button class="prev-btn" (click)="prevImage()">&#10094;</button>
+
+            <div class="lightbox-content">
+                <img [src]="images[currentIndex].url" class="imgAnim" [alt]="images[currentIndex].caption" />
+                <div class="caption">{{ images[currentIndex].caption }}</div>
+            </div>
+
+            <button class="next-btn" (click)="nextImage()">&#10095;</button>
+            <button class="close-btn" (click)="closeLightbox()">×</button>
+        </div>
+    </div>
+</div>

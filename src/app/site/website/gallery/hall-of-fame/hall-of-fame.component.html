@@ -1,0 +1,41 @@
+<section class="slider">
+    <div class="slider-container">
+        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlideIndex"
+            [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h2 class="text-white fw-semibold mb-3 hero-title">{{ slide.title }}</h2>
+                <!-- <p>{{ slide.description }}</p> -->
+
+                <p class="font-size-14">
+                    {{ slide.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hall of fame -->
+<section class="section scroll-animation" id="hall-of-fame">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Happy Winners</div>
+                    <h4 class="viewAllHallOfFame">Hall of Fame</h4>
+                    <a href="javascript:void(0)"><span class="viewAllHallOfFame">View All</span></a>
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 scroll-animation">
+            <app-gallery-lightbox [images]="images"></app-gallery-lightbox>
+            
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>

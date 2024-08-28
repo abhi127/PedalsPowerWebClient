@@ -1,0 +1,217 @@
+<section class="slider">
+    <div class="slider-container">
+        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlideIndex"
+            [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h2 class="text-white fw-semibold mb-3 hero-title">{{ slide.title }}</h2>
+                <!-- <p>{{ slide.description }}</p> -->
+
+                <p class="font-size-14">
+                    {{ slide.description }}
+                </p>
+
+                <div class="button-items mt-4">
+                    <a href="javascript: void(0);" class="btn btn-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features start -->
+<section class="section" id="features">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Join Us</div>
+                    <h4>Embark on a fun cycling trip or elevate your experience by taking on a 
+                        running challenge.</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <div class="row align-items-center pt-4">
+            <div class="col-md-6 ms-auto">
+                <div class="mt-4 mt-md-auto scroll-animation">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="features-number fw-semibold display-4 me-3">01</div>
+                        <h4 class="mb-0">Running Challenge</h4>
+                    </div>
+                    <p class="text-muted">
+                        Overall, Run Challenges offer participants a structured way to improve fitness 
+                        levels, achieve personal goals, connect with others, and support meaningful 
+                        causes. They cater to a wide range of abilities and motivations, making them 
+                        accessible and beneficial for both recreational runners and competitive 
+                        athletes alike. Benefits of Run Challenges: Physical Fitness: Running 
+                        challenges promote cardiovascular health, improve endurance, and contribute 
+                        to weight management. Mental Well-being: Regular running can reduce stress 
+                        levels, improve mood, and enhance mental clarity and focus. 
+                        Goal Achievement: Setting and achieving running goals provides a sense of 
+                        accomplishment and boosts self-confidence. Community and 
+                        Social Interaction: Participation in run challenges allows individuals to 
+                        connect with other runners, fostering a sense of camaraderie and support. 
+                        Charitable Contributions: Many run challenges support charitable causes, 
+                        allowing participants to contribute positively to their communities or global 
+                        initiatives.
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-md-6 col-sm-8 scroll-animation">
+                <div>
+                    <img src="assets/images/crypto/features-img/challenges/run/running1.gif" alt=""
+                        class="img-fluid mx-auto d-block">
+                </div>
+            </div>
+           
+        </div>
+        <!-- end row -->
+
+        <div class="row align-items-center mt-5 pt-md-5">
+            <div class="col-md-6  col-sm-8 ms-md-auto scroll-animation">
+                <div class="mt-4 me-md-0">
+                    <img src="assets/images/crypto/features-img/challenges/run/running2.png" alt=""
+                        class="img-fluid mx-auto d-block">
+                </div>
+            </div>
+            <div class="col-md-6 scroll-animation">
+                <div class="mt-4 mt-md-0">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="features-number fw-semibold display-4 me-3">02</div>
+                        <h4 class="mb-0">Challenge Rules</h4>
+                    </div>
+                    <p class="text-muted">
+                        In these Cycling and Running challenges, you set a target distance to achieve within a
+                        month. Successfully reaching your goal earns you a uniquely designed challenge medal
+                        along with exclusive rewards and goodies.
+                    </p>
+
+
+                    <div class="card">
+                        <div class="card-header bg-transparent border-bottom ">
+                            <div class="d-flex align-items-center sec-1-heading">
+                                <h4 class="mb-0 chRuleHead">Challenge Rules:</h4>
+                            </div>
+                            <div class="card">
+                                <div class="card-body c-rule">
+                                    <blockquote class="card-blockquote mb-0">
+                                        <p class="chRuleDesc">
+                                            (1) Complete your chosen distance in the given duration of the event.
+                                        </p>
+                                    </blockquote>
+
+                                    <blockquote class="card-blockquote mb-0">
+                                        <p class="chRuleDesc">
+                                            (2) Record your activity in any fitness app (STRAVA Recommended)
+                                        </p>
+                                    </blockquote>
+
+                                    <blockquote class="card-blockquote mb-0">
+                                        <p class="chRuleDesc">
+                                            (3) You are free to choose the days, place 
+                                            (indoors or outdoors), and the distance you want to 
+                                            complete on any particular day.
+                                        </p>
+                                    </blockquote>
+
+                                    <blockquote class="card-blockquote mb-0">
+                                        <p class="chRuleDesc">
+                                            (4) Participants has to ride a minimum distance of 5 
+                                            KM for an activity to be considered for the challenge. 
+                                            Less than 5 KM won't be counted.
+                                        </p>
+                                    </blockquote>
+
+                                    <blockquote class="card-blockquote mb-0">
+                                        <p class="chRuleDesc">
+                                            (5) In a day, a maximum of two rides are accepted. 
+                                            If you do more than 2, then only the first two will be 
+                                            counted towards the challenge.
+                                        </p>
+                                    </blockquote>
+
+                                    <blockquote class="card-blockquote mb-0">
+
+                                        <p class="chRuleDesc">
+                                            (6) If you have registered for the medal category then it 
+                                            is mandatory to complete up to 95% of your chosen target 
+                                            to be eligible for medal. If you fail to complete 95% of 
+                                            your selected target then you won't be receiving the 
+                                            finisher's medal.
+                                        </p>
+
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+<!-- Medals and tshirts -->
+<section class="section scroll-animation" id="medals-and-tshirts">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Medals</div>
+                    <h4>Medals and T-shirts</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 scroll-animation">
+            <app-gallery-lightbox [images]="medals"></app-gallery-lightbox>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+<!-- FAQ -->
+<section class="section scroll-animation" id="faq">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">FAQ</div>
+                    <h4>Frequently Asked Questions</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 scroll-animation">
+            <div>
+                <div class="accordion-container">
+                    <div class="accordion-item" *ngFor="let item of accordionData; let i = index"
+                        (click)="toggleAccordion(i)">
+                        <div class="accordion-header" [class.active]="selectedIndex === i">
+                            <h3>{{ item.title }}</h3>
+                            <i style="color: #999;"
+                                [class]="selectedIndex === i ? 'bx bx-chevron-up' : 'bx bx-chevron-down'"></i>
+                        </div>
+                        <div class="accordion-content" [class.show]="selectedIndex === i">
+                            <p [innerHTML]="item.content"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>

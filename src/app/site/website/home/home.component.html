@@ -1,0 +1,269 @@
+<section class="slider">
+    <div class="slider-container">
+        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlideIndex"
+            [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h2 class="text-white fw-semibold mb-3 hero-title">{{ slide.title }}</h2>
+                <!-- <p>{{ slide.description }}</p> -->
+
+                <p class="font-size-14">
+                    {{ slide.description }}
+                </p>
+
+                <div class="button-items mt-4">
+                    <a href="javascript: void(0);" class="btn btn-primary">Register Now</a>
+                    <a href="javascript: void(0);" class="btn btn-light">Know More</a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="slider-controls">
+            <button (click)="previousSlide()">&#10094;</button>
+            <button (click)="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+
+
+
+</section>
+
+
+<!-- currency price section start -->
+<section class="section bg-white p-0">
+    <div class="container-fluid">
+        <div class="currency-price">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="avatar-xs me-3">
+                                    <span
+                                        class="avatar-title rounded-circle bg-soft bg-warning text-warning font-size-18">
+                                        <i class="mdi mdi-medal-outline"></i>
+                                    </span>
+                                </div>
+                                <div class="media-body">
+                                    <p class="text-muted">Gold Champions</p>
+                                    <h5>9134</h5>
+                                    <p class="text-muted text-truncate mb-0">For the Last year<i
+                                            class="mdi mdi-arrow-up ms-1 text-success"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="avatar-xs me-3">
+                                    <span
+                                        class="avatar-title rounded-circle bg-soft bg-primary text-primary font-size-18">
+                                        <i class="mdi mdi-medal-outline"></i>
+                                    </span>
+                                </div>
+                                <div class="media-body">
+                                    <p class="text-muted">Silver Champions</p>
+                                    <h5>233</h5>
+                                    <p class="text-muted text-truncate mb-0">For the Last Year<i
+                                            class="mdi mdi-arrow-down ms-1 text-danger"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="avatar-xs me-3">
+                                    <span class="avatar-title rounded-circle bg-soft bg-info text-info font-size-18">
+                                        <i class="mdi mdi-medal-outline"></i>
+                                    </span>
+                                </div>
+                                <div class="media-body">
+                                    <p class="text-muted">Silver Champions</p>
+                                    <h5>255</h5>
+                                    <p class="text-muted text-truncate mb-0">For the Last Year<i
+                                            class="mdi mdi-arrow-up ms-1 text-success"></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+    </div>
+    <!-- end container -->
+</section>
+
+
+
+<!-- Features start -->
+<section class="section" id="features">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Join Us</div>
+                    <h4>Embark on a fun cycling trip or elevate your experience by taking on a running or cycling challenge.</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <div class="row align-items-center pt-4">
+            <div class="col-md-6 col-sm-8 scroll-animation">
+                <div>
+                    <img src="assets/images/crypto/features-img/Road-Cycling.png" alt=""
+                        class="img-fluid mx-auto d-block">
+                </div>
+            </div>
+            <div class="col-md-5 ms-auto">
+                <div class="mt-4 mt-md-auto scroll-animation">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="features-number fw-semibold display-4 me-3">01</div>
+                        <h4 class="mb-0">Cycling trips</h4>
+                    </div>
+                    <p class="text-muted">
+                        Whether it’s a leisurely ride through scenic routes or a challenging adventure 
+                        across rugged terrains, these trips cater to all levels of cyclists. They 
+                        provide a perfect blend of fitness, exploration, and the thrill of discovering 
+                        hidden gems along the journey. Experience the joy of the open road and connect 
+                        with nature in a way that only cycling can offer.
+                    </p>
+                    <div class="text-muted mt-4">
+                        <p><i class="mdi mdi-circle-medium text-success me-1"></i>
+                            Fully supported weekend getaway rides.
+                        </p>
+
+                        <p><i class="mdi mdi-circle-medium text-success me-1"></i>
+                            3-4 days long supported inter-city cycling trips.
+                        </p>
+                        <p>
+                            <i class="mdi mdi-circle-medium text-success me-1"></i>
+                            Month long cycling expeditions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <div class="row align-items-center mt-5 pt-md-5">
+            <div class="col-md-5 scroll-animation">
+                <div class="mt-4 mt-md-0">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="features-number fw-semibold display-4 me-3">02</div>
+                        <h4 class="mb-0">Challenges</h4>
+                    </div>
+                    <p class="text-muted">
+                      
+                    In these Cycling and Running challenges, you set a target distance to achieve within a 
+                    month. Successfully reaching your goal earns you a uniquely designed challenge medal 
+                    along with exclusive rewards and goodies.
+                    </p>
+                    <!-- <div class="text-muted mt-4">
+                        <p class="mb-2"><i class="mdi mdi-circle-medium text-success me-1"></i>Donec pede justo vel
+                            aliquet</p>
+                        <p><i class="mdi mdi-circle-medium text-success me-1"></i>Aenean et nisl sagittis</p>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-md-6  col-sm-8 ms-md-auto scroll-animation">
+                <div class="mt-4 me-md-0">
+                    <img src="assets/images/crypto/features-img/Road-Cycling-1.png" alt=""
+                        class="img-fluid mx-auto d-block">
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+<!-- Hall of fame -->
+<section class="section scroll-animation" id="hall-of-fame">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Challenges</div>
+                    <h4 class="viewAllHallOfFame">Challenges we provide</h4>
+                    <!-- <a href="javascript:void(0)"><span class="viewAllHallOfFame">View All</span></a> -->
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 scroll-animation">
+            <app-gallery-lightbox [images]="images" [isPreviewVisible]="false"></app-gallery-lightbox>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+
+
+<!-- Testimonial start -->
+<section class="section bg-white" id="testimonial">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Testimonial</div>
+                    <h4>Experience of Participants</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <div class="hori-timeline">
+                  <owl-carousel-o [options]="timelineCarousel" class="events navs-carousel">
+                    <ng-container *ngFor="let item of carouselItems">
+                      <ng-template carouselSlide>
+                        <div class="item event-list">
+                          <div>
+                            <div class="event-date">
+                              <div class="col-lg-12">
+                                <div>
+                                  <img [src]="item.image" alt="" class="rounded-circle avatar-lg" style="margin: auto; width: auto;">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="event-down-icon">
+                              <i class="bx bx-down-arrow-circle h1 text-primary down-arrow-icon"></i>
+                            </div>
+                            <div class="mt-3 px-3">
+                              <div class="review-star-icon">
+                                <img [src]="item.stars" alt="" style="display: initial; width: 100px;">
+                              </div>
+                              <p class="text-muted">{{ item.review }}</p>
+                              <blockquote>-{{ item.reviewer }}</blockquote>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                  </owl-carousel-o>
+                </div>
+              </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+<!-- Roadmap end -->
+
+

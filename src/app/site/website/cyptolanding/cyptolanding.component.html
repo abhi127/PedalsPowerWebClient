@@ -1,0 +1,336 @@
+<nav class="navbar navbar-expand-lg navigation fixed-top sticky" (window:scroll)="windowScroll()" id="navbar">
+    <div class="container-fluid">
+        <a class="navbar-logo" routerLink="/">
+            <img src="assets/images/logo.png" alt="" style="transition: all 0.5s ease-in-out;width: 20px;height: 20px;;"
+                class="logo logo-dark">
+            <img src="assets/images/logo.png" style="transition: all 0.5s ease-in-out;width: 50px;height: 50px;;" alt=""
+                class="logo logo-light">
+        </a>
+
+        <div class="profile-topnav">
+            <div class="collapse navbar-collapse" id="topnav-menu-content">
+                <ul class="navbar-nav ms-auto" id="topnav-menu">
+                    <!-- Home Item -->
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/" [ngClass]="{'active':currentSection === 'home'}">Home</a>
+                    </li>
+
+                    <!-- Challenges Item with Submenu -->
+                    <li class="nav-item dropdown" (click)="toggleDropdown('challengesDropdown')">
+                        <a class="nav-link dropdown-toggle" href="javascript: void(0);" id="challengesDropdown"
+                            role="button" aria-expanded="false" [ngClass]="{'active':currentSection === 'challenges'}">
+                            Challenges
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                        </a>
+
+                        <ul class="dropdown-menu" [class.show]="activeDropdown === 'challengesDropdown'">
+                            <!-- <li>
+                                <a class="dropdown-item" routerLink="challenges/iday/independence"
+                                    [ngClass]="{'active':currentSection === 'independenceDay'}">Independence Day</a>
+                            </li> -->
+                            <li class="dropdown-submenu" (click)="toggleDropdown('monthlyDropdown', $event)">
+                                <a class="dropdown-item dropdown-toggle" href="javascript: void(0);">
+                                    Monthly
+                                    <i class="mdi mdi-chevron-right d-none d-xl-inline-block"></i>
+                                </a>
+                                <ul class="dropdown-menu" [class.show]="activeDropdown === 'monthlyDropdown'">
+                                    <li>
+                                        <a class="dropdown-item" routerLink="challenges/monthly/cycling-challenge"
+                                            [ngClass]="{'active':currentSection === 'cyclingChallenge'}">
+                                            Cycling distance Challenge</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="challenges/monthly/run-challenge"
+                                            [ngClass]="{'active':currentSection === 'runWalkChallenge'}">
+                                            Run Distance Challenge</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" routerLink="challenges/monthly/walk-challenge"
+                                            [ngClass]="{'active':currentSection === 'runWalkChallenge'}">
+                                            Walk Distance Challenge</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- <li class="dropdown-submenu" (click)="toggleDropdown('oneDayDropdown', $event)">
+                                <a class="dropdown-item dropdown-toggle" href="javascript: void(0);">
+                                    One Day
+                                    <i class="mdi mdi-chevron-right d-none d-xl-inline-block"></i>
+                                </a>
+                                <ul class="dropdown-menu" [class.show]="activeDropdown === 'oneDayDropdown'">
+                                    <li>
+                                        <a class="dropdown-item" routerLink="challenges/oneday/century-or-half-century">
+                                            Century or half century cycling challenge</a>
+                                    </li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </li>
+
+                    <!-- Gallery Item -->
+                    <!-- <li class="nav-item dropdown" (click)="toggleDropdown('galleryDropdown')">
+                        <a class="nav-link dropdown-toggle" href="javascript: void(0);"
+                            [ngClass]="{'active':currentSection === 'gallery'}">Gallery
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i></a>
+                        <ul class="dropdown-menu" [class.show]="activeDropdown === 'galleryDropdown'">
+                            <li>
+                                <a class="dropdown-item" href="javascript: void(0);" routerLink="gallery/hall-of-fame"
+                                    [ngClass]="{'active':currentSection === 'gallery'}">Hall of Fame</a>
+                            </li>
+                            <li class="dropdown-submenu" (click)="toggleDropdown('galleryDropdown', $event)">
+                                <a class="dropdown-item dropdown-toggle" routerLink="gallery/cycling-trip"
+                                    href="javascript: void(0);">
+                                    Gurugram to Alwar cycling trip
+                                </a>
+                            </li>
+                        </ul>
+                    </li> -->
+
+                    <!-- Our Story Item -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript: void(0);" routerLink="our-story"
+                            [ngClass]="{'active':currentSection === 'ourStory'}">Our Story</a>
+                    </li>
+                </ul>
+
+                <header class="">
+                    <!-- <a href="javascript: void(0);" class="btn btn-outline-success w-xs">Sign in</a> -->
+                    <a routerLink="/account/login" id="user">
+                        <i class="bx bx-user font-size-16 align-middle me-1"></i>
+                    </a>
+
+                    <a href="javascript: void(0);" id="cart">
+                        <i class="bx bx-cart font-size-16 align-middle me-1"></i>
+                    </a>
+
+                    <div class="dropdown d-inline-block" ngbDropdown>
+                        <button type="button" class="btn header-item" id="page-header-user-dropdown" ngbDropdownToggle>
+                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                                alt="Header Avatar">
+
+                            <span class="d-none d-xl-inline-block ms-1 nav-link" id="nb">Henry <i
+                                    class="mdi mdi-chevron-down d-none d-xl-inline-block"></i></span>
+                        </button>
+
+                        <div class="dropdown-menu dropdown-menu-end" ngbDropdownMenu>
+                            <!-- item-->
+                            <a class="dropdown-item" href="javascript: void(0);">
+                                <i class="bx bx-user font-size-16 align-middle me-1"></i>
+                                {{ 'HEADER.LOGIN.PROFILE' | translate}}</a>
+                            <a class="dropdown-item" href="javascript: void(0);"><i
+                                    class="bx bx-wallet font-size-16 align-middle me-1"></i>{{ 'HEADER.LOGIN.MY_WALLET'
+                                | translate}}</a>
+                            <a class="dropdown-item d-block" href="javascript: void(0);"><span
+                                    class="badge bg-success float-end">11</span><i
+                                    class="bx bx-wrench font-size-16 align-middle me-1"></i>{{ 'HEADER.LOGIN.SETTINGS' |
+                                translate}} </a>
+                            <a class="dropdown-item" href="javascript: void(0);"><i
+                                    class="bx bx-lock-open font-size-16 align-middle me-1"></i>
+                                {{ 'HEADER.LOGIN.LOCK_SCREEN' | translate}}</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="javascript: void(0);" (click)="logout()"><i
+                                    class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
+                                {{ 'HEADER.LOGIN.LOGOUT' | translate}}</a>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <!-- <button type="button" class="toggle-button btn btn-sm px-3 font-size-16 d-lg-none header-item" data-toggle="collapse"
+            data-target="#sidebar" (click)="toggleSidebar()">
+            <i class="fa fa-fw fa-bars"></i>
+        </button> -->
+
+        <!-- Toggle Button -->
+        <!-- <button (click)="toggleSidebar()">Toggle Sidebar</button> -->
+
+        <div class="mob-ico">
+            <a href="javascript: void(0);" class="font-size-16 d-lg-none">
+                <i class="bx bx-user font-size-16 me-1"></i>
+            </a>
+
+            <a href="javascript: void(0);" class="font-size-16 d-lg-none">
+                <i class="bx bx-cart font-size-16 me-1"></i>
+            </a>
+        </div>
+        <div class="wrapper" [ngClass]="{'sidebar-visible': isSidebarVisible, 'sidebar-hidden': !isSidebarVisible}">
+            <button type="button" class="toggle-button-sidebar btn btn-sm px-3 d-lg-none font-size-16"
+                data-toggle="collapse" data-target="#sidebar" (click)="toggleSidebar()">
+                <i *ngIf="!isSidebarVisible" class="fa fa-fw fa-bars"></i>
+                <i *ngIf="isSidebarVisible" class="fa fa-fw fa-times"></i>
+            </button>
+
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Pedals Power</h3>
+                </div>
+                <div class="sidebar">
+                    <ul class="menu-list">
+                        <li *ngFor="let menu of menus">
+                            <!-- Parent Menu Item -->
+
+                            <div class="menu-item" (click)="toggleNavMenu(menu)"
+                                [class.active]="activeMenu === menu.title">
+
+                                <!-- Handle routing for items without submenus -->
+                                <a *ngIf="!menu.items" [routerLink]="menu.routerLink" (click)="onMainMenuClick()">{{
+                                    menu.title }}</a>
+                                <span *ngIf="menu.items">{{ menu.title }}</span>
+                                <span *ngIf="menu.items" class="arrow" [class.open]="menu.isOpen">&#9660;</span>
+                            </div>
+                            <!-- Submenu -->
+                            <ul *ngIf="menu.isOpen" class="submenu-list">
+                                <li *ngFor="let item of menu.items" (click)="toggleSubMenu(item, $event)"
+                                    [class.active]="activeSubMenu === item.title">
+                                    <ng-container *ngIf="isObject(item); else simpleItem">
+                                        <div class="submenu-item">
+                                            <!-- Handle routing for items without submenus -->
+                                            <a *ngIf="!item.items" [routerLink]="item.routerLink"
+                                                (click)="onMenuClick()">{{ item.title }}</a>
+                                            <span *ngIf="item.items">{{ item.title }}</span>
+                                            <span *ngIf="item.items" class="arrow"
+                                                [class.open]="item.isOpen">&#9654;</span>
+                                        </div>
+                                        <!-- Sub-submenu -->
+                                        <ul *ngIf="item.isOpen" class="sub-submenu-list">
+                                            <li *ngFor="let subItem of item.items"
+                                                (click)="toggleSubSubMenu(subItem, $event)"
+                                                [class.active]="activeSubSubMenu === subItem.title">
+                                                <ng-container *ngIf="isObject(subItem); else simpleSubItem">
+                                                    <div class="sub-submenu-item">
+
+                                                        <!-- {{ subItem.title }} -->
+
+                                                        <a [routerLink]="subItem.routerLink" (click)="onMenuClick()">{{
+                                                            subItem.title }}</a>
+
+                                                        <span *ngIf="subItem.items" class="arrow"
+                                                            [class.open]="subItem.isOpen">&#9654;</span>
+                                                    </div>
+                                                    <ul *ngIf="subItem.isOpen">
+                                                        <li *ngFor="let innerItem of subItem.items">
+                                                            <a [routerLink]="innerItem.routerLink"
+                                                                (click)="onMenuClick()">{{ innerItem }}</a>
+                                                        </li>
+                                                    </ul>
+                                                </ng-container>
+                                                <ng-template #simpleSubItem>
+                                                    <a [routerLink]="subItem.routerLink" class="sub-submenu-item"
+                                                        (click)="onMenuClick()">{{ subItem }}</a>
+                                                </ng-template>
+                                            </li>
+                                        </ul>
+                                    </ng-container>
+                                    <ng-template #simpleItem>
+                                        <a [routerLink]="item.routerLink" class="submenu-item"
+                                            (click)="onMenuClick()">{{ item.title }}</a>
+                                    </ng-template>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+
+
+            <!-- Page Content  -->
+            <div id="content">
+
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<!-- Footer start -->
+<footer class="landing-footer scroll-animation">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-4 col-sm-4">
+                <div class="mb-4 mb-lg-0">
+                    <h5 class="mb-3 footer-list-title">Quick Links</h5>
+                    <ul class="list-unstyled footer-list-menu">
+                        <li><a href="javascript: void(0);">About us</a></li>
+                        <li><a href="javascript: void(0);">Search</a></li>
+                        <li><a href="javascript: void(0);">Cancellation and Refund Policy</a></li>
+                        <li><a href="javascript: void(0);">Privacy Policy</a></li>
+                        <li><a href="javascript: void(0);">Terms of Service</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+                <div class="mb-4 mb-lg-0">
+                    <h5 class="mb-3 footer-list-title">Our mission</h5>
+                    <p>
+                        We are a team of fitness enthusiasts who are working towards a vision to motivate others to
+                        build a healthy lifestyle.
+                    </p>
+                    <!-- <ul class="list-unstyled footer-list-menu">
+                            <li><a href="javascript: void(0);">We are a team of fitness enthusiasts who are</a></li>
+                            <li><a href="javascript: void(0);"></a></li>
+                            <li><a href="javascript: void(0);">Privacy Policy</a></li>
+                            <li><a href="javascript: void(0);">Terms & Conditions</a></li>
+                        </ul> -->
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-sm-4">
+                <div class="mb-4 mb-lg-0">
+                    <h5 class="mb-3 footer-list-title">Contat Us</h5>
+                    <div class="blog-post">
+                        <a href="javascript: void(0);" class="post">
+                            <p class="mb-0"><i class="bx bx-map me-1"></i>
+                                M3M International Financial Centre, Golf Course Ext Rd, Badshahpur,
+                                Sector 66, Gurugram, Haryana 122002
+                            </p>
+                        </a>
+                        <a href="javascript: void(0);" class="post">
+                            <p class="mb-0"><i class="bx bx-phone me-1"></i>+91-9811490414</p>
+                        </a>
+                        <a href="javascript: void(0);" class="post">
+                            <p class="mb-0"><i class="bx bx-envelope me-1"></i>ppowe&#64;info.com</p>
+                        </a>
+
+                        <a href="javascript: void(0);" class="post">
+                            <div class="footer-icons">
+                                <i class="bx bxl-whatsapp me-1"></i>
+                                <i class="bx bxl-linkedin me-1"></i>
+                                <i class="bx bxl-youtube me-1"></i>
+                                <i class="bx bxl-facebook me-1"></i>
+                                <i class="bx bxl-twitter me-1"></i>
+                                <i class="bx bxl-instagram me-1"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+
+        <hr class="footer-border my-5">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-4">
+                    <img src="assets/images/logo.png" alt="" height="50" width="50">
+                </div>
+
+                <p class="mb-2">{{year}} © 2024 iPower | Terms & Conditions</p>
+                <!-- <p>It will be as simple as occidental in fact, it will be to an english person, it will seem like
+                        simplified English, as a skeptical</p> -->
+            </div>
+
+        </div>
+    </div>
+    <!-- end container -->
+</footer>
+<!-- Footer end -->
