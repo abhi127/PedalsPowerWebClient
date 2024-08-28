@@ -20,7 +20,9 @@
             "allowedCommonJsDependencies": [
               "rxjs", "core-js", "chart.js", "chartist"
             ],
-            "outputPath": "dist/skote",
+            "outputPath": "dist/PedalsPowerWebClient",
+            "baseHref": "/PedalsPowerWebClient/",
+            "deployUrl": "/PedalsPowerWebClient/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
