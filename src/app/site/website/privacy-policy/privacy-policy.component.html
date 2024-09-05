@@ -1,0 +1,117 @@
+<section class="slider">
+    <div class="slider-container">
+        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlideIndex"
+            [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h2 class="fw-semibold mb-3 hero-title">{{ slide.title }}</h2>
+                <!-- <p>{{ slide.description }}</p> -->
+
+                <p class="font-size-14" style="color:#c0c0c0">
+                    {{ slide.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="our-story">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Privacy Policy</div>
+                    <h4 class="viewAllHallOfFame">Our Privacy Policy</h4>
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 story-desc">
+            <h5>Introduction</h5>
+            <div>
+                <p>
+                    Welcome to Ipower. This Privacy Policy outlines how Ipower
+                    ("we," "our," or "us") collects, uses, and protects your Personal Information
+                    when you visit our website (the "Site") or make a purchase through it.
+                </p>
+            </div>
+
+
+            <div>
+                <h5>Contact Us</h5>
+                <p>
+                    If you have any questions, need more information about our privacy practices,
+                    or wish to make a complaint, please reach out to us at:
+                </p>
+                <ul>
+                    <li><b>Email:</b> Ipower&#64;gmail.com</li>
+                    <li><b>Addr:</b> Ipower M3M International Financial Centre, Golf Course Ext Rd,
+                        Badshahpur, Sector 66, Gurugram, Haryana 122002
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h5>Information We Collect</h5>
+                <p>
+                    When you visit our Site, we gather certain details about your device,
+                    interactions with the Site, and information necessary to process your
+                    transactions. If you contact us for support, we may collect additional
+                    information. Here, "Personal Information" refers to any data that can identify
+                    an individual.
+                </p>
+
+                <h5>How We Use Your Information</h5>
+                <p>
+                    We use your Personal Information to deliver our services effectively, including:
+                </p>
+
+                <ul>
+                    <li>Processing and fulfilling orders</li>
+                    <li>Handling payments</li>
+                    <li>Shipping and delivering products</li>
+                    <li>Keeping you informed about new products, services, and promotions</li>
+                </ul>
+
+                <h5>Cookies</h5>
+                <p>
+                    Cookies are small files placed on your device to enhance your browsing
+                    experience. They help remember your preferences, such as login details and
+                    regional settings, so you don't need to re-enter them. Cookies also provide
+                    insights into website usage, such as whether it's your first visit or if you're
+                    a returning user.<br><br>
+                    There are two types of cookies:
+                </p>
+
+                <ul>
+                    <li>Session Cookies: Temporary and expire once you close your browser.</li>
+                    <li>Persistent Cookies: Remain on your device for a specified period,
+                        ranging from 30 minutes to two years.</li>
+                </ul>
+
+                <p>
+                    You can manage and control cookies through your browser settings. However,
+                    disabling cookies might affect your user experience and limit access to certain
+                    features of our Site.
+                </p>
+
+
+                <h5>Updates to This Policy</h5>
+                <p>
+                    We may revise this Privacy Policy periodically to reflect changes in our practices, or for legal or
+                    regulatory reasons. Any updates will be posted on this page, and your continued use of the Site
+                    signifies your acceptance of these changes.
+                    <br><br>
+                    Thank you for trusting Ipower with your Personal Information. We are committed to protecting your
+                    privacy and ensuring a secure browsing experience.
+                </p>
+            </div>
+
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>

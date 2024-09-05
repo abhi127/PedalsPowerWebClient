@@ -24,8 +24,7 @@ export class OurStoryComponent implements OnInit {
       We are dedicated to empowering individuals to prioritize their health and well-being. 
       Our challenges motivate participants to set and achieve goals that lead to lasting wellness. 
       By fostering commitment and perseverance, we help build habits that support long-term health. 
-      Whether through fitness, nutrition, or mindfulness, our approach promotes a holistic lifestyle 
-      for a healthier, more vibrant you.
+      
       `
     },
   ];

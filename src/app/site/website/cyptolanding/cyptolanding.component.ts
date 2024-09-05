@@ -5,7 +5,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { environment } from 'src/environments/environment';
 import { AuthenticationService } from '../../../core/services/auth.service';
 import { AuthfakeauthenticationService } from '../../../core/services/authfake.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../../core/services/language.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  * Crypto landing page
  */
 export class CyptolandingComponent implements OnInit {
-  
+
   currentIndex = 0;
   itemsPerSlide = 6; // 2 rows * 3 columns
   displayedItems = [];
@@ -39,6 +39,7 @@ export class CyptolandingComponent implements OnInit {
   // Track the index of the currently open submenu and sub-submenu
   activeSubmenuIndex: number | null = null;
   activeSubSubmenuIndex: { [key: number]: number | null } = {};
+  rlink: boolean = false;
 
   constructor(
     private authService: AuthenticationService,
@@ -50,7 +51,12 @@ export class CyptolandingComponent implements OnInit {
 
   ngOnInit(): void {
     this.restoreScrollPosition();
-
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.setActiveMenuItems(this.router.url);
+      }
+    });
+    this.setActiveMenuItems(this.router.url);
   }
 
   @HostListener('window:beforeunload', ['$event'])
@@ -94,6 +100,7 @@ export class CyptolandingComponent implements OnInit {
 
   // Toggle the entire sidebar
   toggleSidebar() {
+    this.setActiveMenuItems(this.router.url);
     this.isSidebarVisible = !this.isSidebarVisible;
   }
 
@@ -114,12 +121,12 @@ export class CyptolandingComponent implements OnInit {
       items: [
         //{ title: 'Independence day', routerLink: '/challenges/iday/independence', items: null, isOpen: false },
         {
-          title: 'Monthly',
+          title: '> Monthly',
           items: [
-            { title: 'Cycling distance challenge', routerLink: '/challenges/monthly/cycling-distance-challenge' },
-            { title: 'Run distance challenge', routerLink: '/challenges/monthly/run-walk-distance-challenge' },
-            { title: 'Walk distance challenge', routerLink: '/challenges/monthly/run-walk-distance-challenge' }
-            
+            { title: '> Cycling challenge', routerLink: '/challenges/monthly/cycling-challenge' },
+            { title: '> Run challenge', routerLink: '/challenges/monthly/run-challenge' },
+            { title: '> Walk challenge', routerLink: '/challenges/monthly/walk-challenge' }
+
           ],
           isOpen: false
         },
@@ -131,91 +138,82 @@ export class CyptolandingComponent implements OnInit {
       ],
       isOpen: false
     },
-    {
-      title: 'Gallery', items: [
-        { title: 'Hall of Fame', routerLink: '/gallery/hall-of-fame' },
-        { title: 'Gurugram to Alwar cycling trip', routerLink: '/gallery/cycling-trip' }
-      ], isOpen: false
-    },
+    // {
+    //   title: 'Gallery', items: [
+    //     { title: 'Hall of Fame', routerLink: '/gallery/hall-of-fame' },
+    //     { title: 'Gurugram to Alwar cycling trip', routerLink: '/gallery/cycling-trip' }
+    //   ], isOpen: false
+    // },
     { title: 'Our Story', routerLink: '/our-story', items: null, isOpen: false }
   ];
-
-  
   activeMenu: string = '';
   activeSubMenu: string = '';
   activeSubSubMenu: string = '';
-  
-  // toggleNavMenu(menu: any) {
-  //   if (menu.items) {
-  //     if (this.activeMenu === menu.title) {
-  //       this.activeMenu = '';
-  //       menu.isOpen = false;
-  //     } else {
-  //       this.activeMenu = menu.title;
-  //       this.closeAllMenus();
-  //       menu.isOpen = true;
-  //     }
-  //   }
-  // }
-  
-  // toggleSubMenu(submenu: any, event: Event) {
-  //   event.stopPropagation(); // Prevent event from bubbling up to parent
-  //   if (submenu.items) {
-  //     if (this.activeSubMenu === submenu.title) {
-  //       this.activeSubMenu = '';
-  //       submenu.isOpen = false;
-  //     } else {
-  //       this.activeSubMenu = submenu.title;
-  //       this.closeAllSubMenus();
-  //       submenu.isOpen = true;
-  //     }
-  //   }
-  // }
 
-
+  // Toggle Main Menu
   toggleNavMenu(menu: any) {
     if (menu.items && menu.items.length > 0) {
-      // Existing logic to open/close menus with submenus
-      if (this.activeMenu === menu.title) {
+      // Toggle menu with submenus
+      if (this.activeMenu === menu.routerLink) {
         this.activeMenu = '';
-        menu.isOpen = false;
+        this.closeAllMenus();
       } else {
-        this.activeMenu = menu.title;
+        this.activeMenu = menu.routerLink;
         this.closeAllMenus();
         menu.isOpen = true;
       }
     } else {
-      // Directly set the active menu if there are no submenus
-      this.activeMenu = menu.title;
-      this.closeAllMenus(); // Close other menus
+      // Set active menu for direct links without submenus
+      this.activeMenu = menu.routerLink;
+      this.closeAllMenus(); // Close all other menus
     }
   }
-  
+
+  // Toggle Submenu
   toggleSubMenu(submenu: any, event: Event) {
-    if (this.activeSubMenu === submenu.title) {
-      this.activeSubMenu = '';
-      submenu.isOpen = false;
-    } else {
-      this.activeSubMenu = submenu.title;
-      this.closeAllSubMenus();
-      submenu.isOpen = true;
+    //debugger
+    event.stopPropagation(); // Prevent event from bubbling up
+
+    // Check if this submenu is already active
+    const isActive = this.activeSubMenu === submenu.routerLink;
+
+    // Update active state
+    this.activeSubMenu = isActive ? '' : submenu.routerLink;
+
+    // Handle opening/closing the submenu
+    if (submenu.items && submenu.items.length > 0) {
+      if (isActive) {
+        submenu.isOpen = false;
+      } else {
+        this.closeAllSubMenus(); // Close all other submenus
+        submenu.isOpen = true;
+      }
     }
   }
-  
+
+  // Toggle Sub-Submenu
   toggleSubSubMenu(subsubmenu: any, event: Event) {
-    event.stopPropagation(); // Prevent event from bubbling up to parent
-    if (subsubmenu.items) {
-      if (this.activeSubSubMenu === subsubmenu.title) {
-        this.activeSubSubMenu = '';
+    
+    event.stopPropagation();
+
+    // Check if this subsubmenu is already active
+    const isActive = this.activeSubSubMenu === subsubmenu.routerLink;
+
+    // Update active state
+    this.activeSubSubMenu = isActive ? '' : subsubmenu.routerLink;
+
+    // Handle opening/closing the subsubmenu
+    if (subsubmenu.items && subsubmenu.items.length > 0) {
+      if (isActive) {
         subsubmenu.isOpen = false;
       } else {
-        this.activeSubSubMenu = subsubmenu.title;
-        this.closeAllSubSubMenus();
+        this.closeAllSubSubMenus(); // Close all other sub-submenus
         subsubmenu.isOpen = true;
       }
     }
   }
-  
+
+  // Close All Menus
   closeAllMenus() {
     this.menus.forEach(menu => {
       menu.isOpen = false;
@@ -231,7 +229,8 @@ export class CyptolandingComponent implements OnInit {
       }
     });
   }
-  
+
+  // Close All Submenus
   closeAllSubMenus() {
     this.menus.forEach(menu => {
       if (menu.items) {
@@ -246,7 +245,8 @@ export class CyptolandingComponent implements OnInit {
       }
     });
   }
-  
+
+  // Close All Sub-Submenus
   closeAllSubSubMenus() {
     this.menus.forEach(menu => {
       if (menu.items) {
@@ -260,7 +260,45 @@ export class CyptolandingComponent implements OnInit {
       }
     });
   }
-  
+
+  // Method to set active states based on current URL
+  setActiveMenuItems(url: string) {
+    this.menus.forEach(menu => {
+      //debugger
+      menu.isOpen = false;
+      if (url.includes(menu.routerLink)) {
+        this.activeMenu = menu.routerLink;
+        menu.isOpen = true;
+        this.activeSubMenu ="";
+      }
+      if (menu.items) {
+        menu.items.forEach((item: any) => {
+          //debugger
+          //this.activeMenu = "";
+          item.isOpen = false;
+          if (url.includes(item.routerLink)) {
+            this.activeSubMenu = item.routerLink;
+            item.isOpen = true;
+            menu.isOpen = true;
+          }
+          if (item.items) {
+            item.items.forEach((subItem: any) => {
+              //debugger
+              subItem.isOpen = false;
+              if (url.includes(subItem.routerLink)) {
+                this.activeMenu = "";
+                this.activeSubSubMenu = subItem.routerLink;
+                subItem.isOpen = true;
+                item.isOpen = true;
+                menu.isOpen = true;
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+
   isObject(item: any): boolean {
     return typeof item === 'object';
   }
@@ -268,12 +306,14 @@ export class CyptolandingComponent implements OnInit {
   // Method to be called when a menu link is clicked
   onMenuClick() {
     this.isSidebarVisible = false;
+   
   }
 
   onMainMenuClick() {
     this.closeAllMenus();
     this.isSidebarVisible = false;
   }
+
 
   ngOnDestroy(): void {
     // this.subscription.unsubscribe();
@@ -309,6 +349,4 @@ export class CyptolandingComponent implements OnInit {
       this.activeDropdown = null;
     }
   }
-
-
 }

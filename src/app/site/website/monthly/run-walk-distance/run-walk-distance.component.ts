@@ -174,7 +174,7 @@ carouselItems = [
   slides = [
     {
       image: 'https://pandeyji98.github.io/iPower/static/media/MainImg.26a31d9c5765f08d8c07.png',
-      title: 'Run/Walk Distance Challenge',
+      title: 'Run/Walk Challenge',
       description: `
       Love running and walking? Take your exercise to the next level with the Run/Walk Distance 
       Challenge. Run, walk, or do both and push yourself to new heights. Enjoy the thrill of 

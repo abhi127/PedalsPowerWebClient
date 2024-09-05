@@ -28,7 +28,7 @@ export class CyclingTripComponent implements OnInit {
     {
       image: 'https://pandeyji98.github.io/iPower/static/media/MainImg.26a31d9c5765f08d8c07.png',
       title: 'Cycling Trip',
-      description: 'Cycling Distance Challenge is the perfect way to stay in shape and challenge yourself. Track your progress with this virtual challenge and see just how far you can go! Compete against your friends or set a personal goal and reach your potential. Great for cyclists of all levels.'
+      description: 'Cycling Challenge is the perfect way to stay in shape and challenge yourself. Track your progress with this virtual challenge and see just how far you can go! Compete against your friends or set a personal goal and reach your potential. Great for cyclists of all levels.'
     },
   ];
 

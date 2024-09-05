@@ -1,0 +1,232 @@
+<section class="slider">
+    <div class="slider-container">
+        <div class="slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlideIndex"
+            [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+
+            <!-- Overlay -->
+            <div class="overlay"></div>
+            <div class="slide-content">
+                <h2 class="fw-semibold mb-3 hero-title">{{ slide.title }}</h2>
+                <!-- <p>{{ slide.description }}</p> -->
+
+                <p class="font-size-14" style="color:#c0c0c0">
+                    {{ slide.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="our-story">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="mb-5">
+                    <div class="small-title">Terms of Service</div>
+                    <h4 class="viewAllHallOfFame">Ipower Terms of Service</h4>
+                </div>
+            </div>
+
+        </div>
+        <!-- end row -->
+        <div class="col-lg-12 story-desc">
+            <h5>Virtual Challenges</h5>
+
+
+            <div>
+
+                <p>
+                    Welcome to Ipower! By accessing or using our website and services, you
+                    agree to be bound by the following terms and conditions. Please read them
+                    carefully. If you do not agree with any part of these terms, you should not
+                    use our website or services.
+                </p>
+
+                <h5>1. Introduction</h5>
+
+                <p>
+                    Ipower operates this website and provides services through it. References
+                    to "we," "us," or "our" are to Ipower. By using our website or making a
+                    purchase, you agree to these Terms of Service, along with any additional
+                    terms and policies referenced or linked herein. These Terms apply to all
+                    users, including browsers, vendors, customers, and contributors.
+                </p>
+
+
+                <h5>2. Online Store Terms</h5>
+
+                <p>
+                    By agreeing to these Terms, you confirm that you are at least of legal age
+                    in your jurisdiction or have consent from a guardian to use our site. You
+                    agree not to use our products or services for unlawful purposes and to avoid
+                    transmitting harmful code. Violations may result in immediate termination
+                    of access.
+                </p>
+
+
+                <h5>3. General Conditions</h5>
+
+                <p>
+                    We reserve the right to refuse service to anyone at any time for any reason.
+                    You acknowledge that your content may be transferred unencrypted, though
+                    credit card information is always encrypted. Reproducing or exploiting any
+                    part of our service without permission is prohibited. Headings in this
+                    agreement are for convenience and do not limit the terms.
+                </p>
+
+                <h5>4. Accuracy, Completeness, and Timeliness of Information</h5>
+
+                <p>
+                    We strive for accuracy but are not responsible for inaccuracies or
+                    incomplete information. Our site may include historical information, which
+                    is not current. You should monitor changes and consult other sources for
+                    up-to-date information.
+                </p>
+
+                <h5>5. Modifications to the Service and Prices</h5>
+
+                <p>
+                    Prices and services are subject to change without notice. We may modify or
+                    discontinue any part of our service without liability.
+                </p>
+
+
+                <h5>6. Products and Services</h5>
+
+                <p>
+                    Certain products or services may only be available online with limited
+                    quantities and specific return policies. We aim to accurately display our
+                    products but cannot guarantee color accuracy. We may limit sales and
+                    discontinue products at our discretion.
+                </p>
+
+                <h5>7. Accuracy of Billing and Account Information</h5>
+
+                <p>
+                    We reserve the right to refuse or cancel orders at our discretion.
+                    Ensure your account information is accurate and up-to-date for smooth
+                    transactions.
+                </p>
+
+                <h5>8. Optional Tools</h5>
+
+                <p>
+                    We may provide access to third-party tools which we do not control or
+                    endorse. Use these tools at your own risk and review the terms of the
+                    third-party providers.
+                </p>
+
+
+                <h5>9. Third-Party Links</h5>
+
+                <p>
+                    Our site may include links to third-party websites. We are not responsible
+                    for their content or practices. Review third-party policies before engaging
+                    in transactions.
+                </p>
+
+
+                <h5>10. User Comments and Feedback</h5>
+
+                <p>
+                    By submitting comments or suggestions, you grant us the right to use them
+                    without restriction. We are not obligated to keep comments confidential or
+                    to compensate for them. We are not responsible for the content or accuracy
+                    of user comments.
+                </p>
+
+                <h5>11. Personal Information</h5>
+
+                <p>
+                    Your personal information is governed by our Privacy Policy.
+                </p>
+
+                <h5>12. Errors, Inaccuracies, and Omissions</h5>
+
+                <p>
+                    We may correct errors or update information without notice. We do not
+                    commit to updating all content.
+                </p>
+
+
+                <h5>13. Prohibited Uses</h5>
+
+                <p>
+                    You may not use our site for illegal purposes or to infringe on
+                    intellectual property rights. Unauthorized use, including the spread of
+                    malware or spam, is prohibited. We may terminate your access for violations.
+                </p>
+
+                <h5>14. Disclaimer of Warranties; Limitation of Liability</h5>
+
+                <p>
+                    Our services are provided “as is” without warranties. We are not liable for
+                    any damages arising from your use of our services. Some jurisdictions do
+                    not allow limitations on liability, so these limits may not apply to you.
+                </p>
+
+                <h5>15. Indemnification</h5>
+
+                <p>
+                    You agree to indemnify Ipower and its affiliates against any claims arising
+                    from your breach of these Terms or violations of law.
+                </p>
+
+                <h5>16. Severability</h5>
+
+                <p>
+                    If any part of these Terms is found to be unenforceable, the remaining
+                    provisions will still apply.
+                </p>
+
+                <h5>17. Termination</h5>
+
+                <p>
+                    We may terminate this agreement if you fail to comply with these Terms.
+                    Termination does not affect obligations incurred prior to termination.
+                </p>
+
+                <h5>18. Entire Agreement</h5>
+
+                <p>
+                    18. Entire Agreement
+                    These Terms and any related policies constitute the entire agreement
+                    between you and Ipower,
+                    superseding any prior agreements.
+                </p>
+
+
+                <h5>19. Governing Law</h5>
+
+                <p>
+                    These Terms are governed by the laws of India.
+                </p>
+
+                <h5>20. Changes to Terms of Service</h5>
+
+                <p>
+                    We may update these Terms periodically. Continued use of our website or
+                    services constitutes acceptance of any changes.
+                </p>
+
+                <h5>21. Contact Information</h5>
+
+                <p>
+                    For questions regarding these Terms of Service, please contact us at:
+                </p>
+
+                <h5>Ipower</h5>
+
+                <p>
+                    <b>Email:</b> ipower&#64;gmail.com <br>
+                    <b>Address:</b> 
+                    M3M International Financial Centre, Golf Course Ext Rd, Badshahpur, Sector 66, Gurugram,
+                    Haryana 122002
+                    Phone: 8076388960
+                </p>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>

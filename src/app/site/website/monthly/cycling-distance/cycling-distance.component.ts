@@ -36,13 +36,11 @@ export class CyclingDistanceComponent implements OnInit {
   slides = [
     {
       image: 'https://pandeyji98.github.io/iPower/static/media/MainImg.26a31d9c5765f08d8c07.png',
-      title: 'Cycling Distance Challenge',
+      title: 'Cycling Challenge',
       description: `
       A Cycle Challenge is an exciting way to push your limits, stay active, and engage with a 
       community of like-minded enthusiasts. Whether you're a beginner or seasoned cyclist, these 
-      challenges motivate you to achieve specific distance goals within a set time frame. Participants 
-      often enjoy the thrill of tracking their progress and celebrating their success with exclusive 
-      medals and rewards upon completion.
+      challenges motivate you to achieve specific distance goals within a set time frame.
       `
     },
   ];
