@@ -40,8 +40,7 @@ export class WalkDistanceComponent implements OnInit {
      A Walk Challenge encourages participants to stay active by setting and achieving walking 
      goals over a defined period. Whether it's daily steps or total distance, this challenge promotes 
      consistent movement, making it perfect for all fitness levels. It’s a simple yet effective way to 
-     improve health while enjoying the outdoors. Completing the challenge often comes with rewards 
-     and a sense of accomplishment, motivating you to keep moving forward.
+     improve health while enjoying the outdoors.
       `
     },
   ];

@@ -12,7 +12,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
   imports: [
     CommonModule,
     SiteRoutingModule,
-    WebsiteModule,CarouselModule
+    WebsiteModule,
+    CarouselModule
   ],
 })
 

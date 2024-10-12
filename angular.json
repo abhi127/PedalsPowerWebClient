@@ -20,9 +20,9 @@
             "allowedCommonJsDependencies": [
               "rxjs", "core-js", "chart.js", "chartist"
             ],
-            "outputPath": "dist/PedalsPowerWebClient",
-            "baseHref": "/PedalsPowerWebClient/",
-            "deployUrl": "/PedalsPowerWebClient/",
+            "outputPath": "dist/ipower",
+            "baseHref": "/ipower/",
+            "deployUrl": "/ipower/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

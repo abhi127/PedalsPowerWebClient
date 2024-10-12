@@ -13,10 +13,16 @@ import { OurStoryComponent } from './our-story/our-story.component';
 import { GalleryLightboxComponent } from './gallery-lightbox/gallery-lightbox.component';
 import { RunDistanceComponent } from './run-distance/run-distance.component';
 import { WalkDistanceComponent } from './walk-distance/walk-distance.component';
+import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsComponent } from './terms/terms.component';
 
 
 @NgModule({
-  declarations: [IndependenceDayComponent, HomeComponent, RunWalkDistanceComponent, CentuaryCyclingComponent, HallOfFameComponent, CyclingTripComponent, OurStoryComponent, GalleryLightboxComponent, RunDistanceComponent, WalkDistanceComponent],
+  declarations: [IndependenceDayComponent, HomeComponent, RunWalkDistanceComponent, 
+    CentuaryCyclingComponent, HallOfFameComponent, CyclingTripComponent, OurStoryComponent, 
+    GalleryLightboxComponent, RunDistanceComponent, WalkDistanceComponent, 
+    RefundPolicyComponent, PrivacyPolicyComponent, TermsComponent],
   imports: [
     CommonModule,
     WebsiteRoutingModule,

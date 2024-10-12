@@ -19,6 +19,7 @@ export class GalleryLightboxComponent implements OnInit {
   constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) { }
 
   ngOnInit(): void {
+    this.onScroll(); 
     this.initializeSwipe();
   }
 
@@ -32,7 +33,6 @@ export class GalleryLightboxComponent implements OnInit {
   }
 
   isCondition2(): boolean {
-
     return this.router.url.includes('challenges/iday/independence');
   }
 
@@ -73,7 +73,6 @@ export class GalleryLightboxComponent implements OnInit {
 
   initializeSwipe(): void {
     const lightboxContent = this.el.nativeElement.querySelector('.lightbox-content-container');
-    debugger
     if (lightboxContent) {
 
       this.hammerInstance = new Hammer(lightboxContent);
@@ -112,5 +111,19 @@ export class GalleryLightboxComponent implements OnInit {
     } else if (event.key === 'ArrowRight') {
       this.nextImage();
     }
+  }
+
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    const tiles = document.querySelectorAll('.gallery-tile');
+    tiles.forEach(tile => {
+      const rect = tile.getBoundingClientRect();
+      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        tile.classList.add('zoom-in');
+      } else {
+        tile.classList.remove('zoom-in');
+      }
+    });
   }
 }

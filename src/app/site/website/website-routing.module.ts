@@ -10,6 +10,9 @@ import { CyclingTripComponent } from './gallery/cycling-trip/cycling-trip.compon
 import { OurStoryComponent } from './our-story/our-story.component';
 import { RunDistanceComponent } from './run-distance/run-distance.component';
 import { WalkDistanceComponent } from './walk-distance/walk-distance.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
+import { TermsComponent } from './terms/terms.component';
 
 const routes: Routes = [
   {
@@ -50,11 +53,23 @@ const routes: Routes = [
     path: 'gallery/cycling-trip',
     component: CyclingTripComponent
   },
-
   {
     path: 'our-story',
     component: OurStoryComponent
   },
+  {
+    path: 'privacy-policy',
+    component: PrivacyPolicyComponent
+  },
+  {
+    path: 'refund-policy',
+    component: RefundPolicyComponent
+  },
+  {
+    path: 'terms',
+    component: TermsComponent
+  },
+
 
 ];
 

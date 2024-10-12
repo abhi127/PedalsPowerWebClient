@@ -2,11 +2,10 @@
     <!-- Image Tile Gallery -->
     <div class="gallery-tiles">
         <div *ngFor="let image of images; let i = index" class="gallery-tile" (click)="openLightbox(i)">
-            <img [src]="image.url" [alt]="image.alt" />
-            <!-- <div class="challenge-desc" [innerHTML]="image.caption"></div> -->
-
-            <div [ngStyle]="{'min-height': isCondition1() ? '55%' : isCondition2() ? '20%' : 'auto' }"
-                class="challenge-desc" [innerHTML]="image.caption"></div>
+            <div class="cbody">
+                <img [src]="image.url" [alt]="image.alt" />
+                <div class="challenge-desc" [innerHTML]="image.caption"></div>
+            </div>
         </div>
     </div>
 

@@ -40,8 +40,7 @@ export class RunDistanceComponent implements OnInit {
       A Running Challenge is a fitness event designed to motivate participants to achieve a set 
       running goal within a specific timeframe. Whether you’re aiming for distance or consistency, 
       these challenges push you to stay active, track your progress, and experience the joy of 
-      reaching your fitness milestones. Completing the challenge often brings a sense of 
-      accomplishment and can be rewarded with medals or other recognition.
+      reaching your fitness milestones.
       `
     },
   ];
