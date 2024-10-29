@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'challenges/iday/independence',
     component: IndependenceDayComponent
   },
+  {
+    path: 'shop',
+    loadChildren:()=> import('./../../pages/ecommerce/ecommerce.module').then(m => m.EcommerceModule)
+  },
 
   {
     path: 'challenges/monthly/cycling-challenge',

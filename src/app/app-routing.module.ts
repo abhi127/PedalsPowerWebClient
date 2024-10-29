@@ -12,8 +12,8 @@ const routes: Routes = [
 
   {
     path: '', component: CyptolandingComponent, children: [
-      { path: '', component: HomeComponent },
-      { path: '', component: IndependenceDayComponent },
+      // { path: '', component: HomeComponent },
+      // { path: '', component: IndependenceDayComponent },
       { path: '', loadChildren: () => import('./site/site.module').then(m => m.SiteModule) },
     ]
   },

@@ -12,11 +12,18 @@ import { productModel, productList } from '../product.model';
  * Ecommerce product-detail component
  */
 export class ProductdetailComponent implements OnInit {
+validSubmit() {
+throw new Error('Method not implemented.');
+}
 
   breadCrumbItems: Array<{}>;
   public productDetail: productModel[];
 
   isImage;
+productForm: any;
+submit: any;
+form: any;
+config: any;
 
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe(params =>
