@@ -361,7 +361,8 @@ export class HomeComponent implements OnInit {
       challenges motivate you to achieve specific distance goals within a set time frame. 
       Participants often enjoy the thrill of tracking their progress and celebrating their 
       success with exclusive medals and rewards upon completion.
-      `
+      `,
+      productid:1
     },
     { image: 'assets/images/crypto/features-img/challenges/run/b5.jpg', title: 'Running Challenge', 
       description: `
@@ -370,7 +371,8 @@ export class HomeComponent implements OnInit {
       these challenges push you to stay active, track your progress, and experience the joy of 
       reaching your fitness milestones. Completing the challenge often brings a sense of 
       accomplishment and can be rewarded with medals or other recognition.
-      `
+      `,
+      productid:2
     },
     { image: 'assets/images/crypto/features-img/challenges/walk/w1.jpg', title: 'Walk Challenge', 
       description: `
@@ -379,7 +381,8 @@ export class HomeComponent implements OnInit {
       promotes consistent movement, making it perfect for all fitness levels. It’s a simple yet 
       effective way to improve health while enjoying the outdoors. Completing the challenge often 
       comes with rewards and a sense of accomplishment, motivating you to keep moving forward.
-      `
+      `,
+      productid:3
     }
   ];
 

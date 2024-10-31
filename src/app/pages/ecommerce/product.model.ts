@@ -220,5 +220,39 @@ export const productList: productModel[] = [
         }],
         images: ['assets/images/product/Pedal150.png', 'assets/images/product/Pedals300.png'],
         colorVariant: []
+    },
+    {
+        id: 2,
+        category: 'IPOWER',
+        name: 'Running Distance Challenge',
+        ratings: 0,
+        reviewCount: 0,
+        discount: 17,
+        oriRate: 600,
+        disRate: 499,
+        feature: ['Feature name: feature detail text'],
+        specification: [{
+            key: 'Distance',
+            value: '150 Km'
+        }],
+        images: ['assets/images/product/Pedal150.png', 'assets/images/product/Pedals300.png'],
+        colorVariant: []
+    },
+    {
+        id: 3,
+        category: 'IPOWER',
+        name: 'Walking Distance Challenge',
+        ratings: 0,
+        reviewCount: 0,
+        discount: 17,
+        oriRate: 600,
+        disRate: 499,
+        feature: ['Feature name: feature detail text'],
+        specification: [{
+            key: 'Distance',
+            value: '150 Km'
+        }],
+        images: ['assets/images/product/Pedal150.png', 'assets/images/product/Pedals300.png'],
+        colorVariant: []
     }
 ];
