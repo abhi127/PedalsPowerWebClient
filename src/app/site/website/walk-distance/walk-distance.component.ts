@@ -34,7 +34,7 @@ export class WalkDistanceComponent implements OnInit {
   //Banner top
   slides = [
     {
-      image: 'https://pandeyji98.github.io/iPower/static/media/MainImg.26a31d9c5765f08d8c07.png',
+      image: './assets/media/walk_challenge.jpg',
       title: 'Walk Challenge',
       description: `
      A Walk Challenge encourages participants to stay active by setting and achieving walking 

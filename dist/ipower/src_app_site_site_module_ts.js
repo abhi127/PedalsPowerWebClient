@@ -1831,7 +1831,7 @@ class CyclingDistanceComponent {
         //Banner top
         this.slides = [
             {
-                image: 'https://pandeyji98.github.io/iPower/static/media/MainImg.26a31d9c5765f08d8c07.png',
+                image: './assets/media/cycle_challenge.jpg',
                 title: 'Cycling Challenge',
                 description: `
       A Cycle Challenge is an exciting way to push your limits, stay active, and engage with a 
@@ -3283,7 +3283,7 @@ class RunDistanceComponent {
         //Banner top
         this.slides = [
             {
-                image: 'https://pandeyji98.github.io/iPower/static/media/MainImg.26a31d9c5765f08d8c07.png',
+                image: './assets/media/run_challenge.jpg',
                 title: 'Running Challenge',
                 description: `
       A Running Challenge is a fitness event designed to motivate participants to achieve a set 
@@ -3720,7 +3720,7 @@ class WalkDistanceComponent {
         //Banner top
         this.slides = [
             {
-                image: 'https://pandeyji98.github.io/iPower/static/media/MainImg.26a31d9c5765f08d8c07.png',
+                image: './assets/media/walk_challenge.jpg',
                 title: 'Walk Challenge',
                 description: `
      A Walk Challenge encourages participants to stay active by setting and achieving walking 

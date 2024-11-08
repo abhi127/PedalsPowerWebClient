@@ -35,7 +35,7 @@ export class CyclingDistanceComponent implements OnInit {
   //Banner top
   slides = [
     {
-      image: 'https://pandeyji98.github.io/iPower/static/media/MainImg.26a31d9c5765f08d8c07.png',
+      image: './assets/media/cycle_challenge.jpg',
       title: 'Cycling Challenge',
       description: `
       A Cycle Challenge is an exciting way to push your limits, stay active, and engage with a 
