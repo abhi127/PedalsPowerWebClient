@@ -21,8 +21,7 @@
               "rxjs", "core-js", "chart.js", "chartist"
             ],
             "outputPath": "dist/ipower",
-            "baseHref": "/ipower/",
-            "deployUrl": "/ipower/",
+            "baseHref": "/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
