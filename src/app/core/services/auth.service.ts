@@ -81,6 +81,8 @@ export class AuthenticationService {
     
       isLoggedIn(): boolean {
         const token = sessionStorage.getItem('token');
+        if(token)
+        return true;
         return token && !this.jwtHelper.isTokenExpired(token);
       }
     

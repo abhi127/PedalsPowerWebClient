@@ -38,7 +38,7 @@
                             <label for="billing-email-address" class="col-md-2 col-form-label">Email Address</label>
                             <div class="col-md-10">
                               <input type="email" class="form-control" id="billing-email-address"
-                                formControlName="email" placeholder="Enter your email" readonly>
+                                formControlName="email" placeholder="Enter your email" >
                               <div *ngIf="addressForm.get('email').touched && addressForm.get('email').invalid"
                                 class="text-danger">
                                 <small *ngIf="addressForm.get('email').hasError('required')">Email is required.</small>
@@ -260,12 +260,12 @@
                   <a routerLink="/ecommerce/cart" class="btn text-muted d-none d-sm-inline-block btn-link">
                     <i class="mdi mdi-arrow-left me-1"></i> Back to Shopping Cart </a>
                 </div> <!-- end col -->
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                   <div class="text-sm-end">
                     <a routerLink="/ecommerce/checkout" class="btn btn-success">
                       <i class="mdi mdi-truck-fast me-1"></i> Proceed to Shipping </a>
                   </div>
-                </div> <!-- end col -->
+                </div> -->
               </div>
             </ng-template>
           </li>
