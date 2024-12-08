@@ -2,7 +2,7 @@ import { BrowserModule, HammerModule  } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-
+import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from '../environments/environment';
 
 import { NgbNavModule, NgbAccordionModule, NgbTooltipModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,6 +37,9 @@ export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
+export function tokenGetter() {
+  return sessionStorage.getItem('token');
+}
 // Custom HammerJS configuration
 export class MyHammerConfig extends HammerGestureConfig {
   override overrides = {
@@ -70,7 +73,13 @@ export class MyHammerConfig extends HammerGestureConfig {
     NgbTooltipModule,
     SharedModule,
     ScrollToModule.forRoot(),
-    NgbModule
+    NgbModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:8000'],
+      },
+    }),
   ],
   
   // exports: [

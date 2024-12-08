@@ -93,22 +93,22 @@
                     </li>
                 </ul>
 
-                <header class="">
+                <header class="me-3">
                     <!-- <a href="javascript: void(0);" class="btn btn-outline-success w-xs">Sign in</a> -->
-                    <a routerLink="/account/login" id="user">
+                    <a routerLink="/account/login" id="user" *ngIf="!isLoggedin">
                         <i class="bx bx-user font-size-16 align-middle me-1"></i>
                     </a>
 
                     <a href="javascript: void(0);" id="cart">
-                        <i class="bx bx-cart font-size-16 align-middle me-1"></i>
+                        <i class="bx bx-cart font-size-16 align-middle me-1" routerLink="/ecommerce/cart"></i>
                     </a>
 
-                    <div class="dropdown d-inline-block" ngbDropdown>
+                    <div *ngIf="isLoggedin" class="dropdown d-inline-block"  ngbDropdown>
                         <button type="button" class="btn header-item" id="page-header-user-dropdown" ngbDropdownToggle>
                             <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
                                 alt="Header Avatar">
 
-                            <span class="d-none d-xl-inline-block ms-1 nav-link" id="nb">Henry <i
+                            <span class="d-none d-xl-inline-block ms-1 nav-link" id="nb">{{name}} <i
                                     class="mdi mdi-chevron-down d-none d-xl-inline-block"></i></span>
                         </button>
 
@@ -146,9 +146,9 @@
         <!-- <button (click)="toggleSidebar()">Toggle Sidebar</button> -->
 
         <div class="mob-ico">
-            <a href="javascript: void(0);" class="font-size-16 d-lg-none">
+            <!-- <a href="javascript: void(0);" class="font-size-16 d-lg-none">
                 <i class="bx bx-user font-size-16 me-1"></i>
-            </a>
+            </a> -->
 
             <a href="javascript: void(0);" class="font-size-16 d-lg-none">
                 <i class="bx bx-cart font-size-16 me-1"></i>

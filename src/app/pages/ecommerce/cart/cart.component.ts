@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Cart } from './cart.model';
 
-import { cartData } from './data';
+import { CartserviceService } from '../../../core/services/cartservice.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,24 +20,40 @@ export class CartComponent implements OnInit {
   value: number;
 
   cartData: Cart[];
+  BillTotal: any;
 
-  constructor() { }
+  constructor(private cartserviceService:CartserviceService) { }
 
   ngOnInit() {
 
     this.value = 4;
     this.breadCrumbItems = [{ label: 'Ecommerce' }, { label: 'Cart', active: true }];
+    
 
     /**
      * fetches the data
      */
     this._fetchData();
   }
+  gettotal(product){
+
+    this.cartserviceService.updateCartItem(product.id,product.quantity)
+    this.BillTotal = this.cartData.reduce((pre:any,curr:any)=>{
+      pre += (parseFloat(curr.disRate) * curr.quantity) 
+      return pre
+    },0)
+  }
 
   /**
    * Cart data fetch
    */
   private _fetchData() {
-    this.cartData = cartData;
+    this.cartData = this.cartserviceService.getCartItems();
+    this.gettotal(null)
   }
+  removeItem(id){
+    this.cartserviceService.removeFromCart(id)
+    this._fetchData()
+  }
+
 }

@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
   <!-- start page title -->
-  <app-page-title title="Product Detail" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- <app-page-title title="Product Detail" [breadcrumbItems]="breadCrumbItems"></app-page-title> -->
 
   <div class="row">
     <div class="col-lg-12">
@@ -43,62 +43,82 @@
                   <span class="bx bx-star"></span>
                 </p>
                 <p class="text-muted mb-4">( {{productDetail[0].reviewCount}} Customers Review )</p>
-
-                <form [formGroup]="productForm" (ngSubmit)="validSubmit()">
+                <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
                   <div class="row">
                     <div class="col-sm">
+                      <!-- Distance Category -->
                       <div class="mb-3">
-                        <label for="productname">Distance Category</label>
-                        <ng-select [items]="['150 KM','300 KM','600 KM']"></ng-select>
-                        <!-- <input id="productname" name="productname" type="text" class="form-control" formControlName="name"
-                          [ngClass]="{'is-invalid': submit && form.name.errors}"> -->
-                        <div *ngIf="submit && form.name.errors" class="invalid-feedback">
-                          <span *ngIf="form.name.errors.required">Name is required.</span>
-                        </div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="manufacturername">Select Month</label>
+                        <label for="distanceCategory">Distance Category</label>
                         <ng-select
-                          [items]="['1st Nov - 30th Nov','1st Dec - 31st Dec','1st Jan - 31st Jan']"></ng-select>
-                        <!-- <input id="manufacturername" name="manufacturername" type="text" class="form-control"
-                          formControlName="manufacture_name"
-                          [ngClass]="{'is-invalid': submit && form.manufacture_name.errors}"> -->
-                        <div *ngIf="submit && form.manufacture_name.errors" class="invalid-feedback">
-                          <span *ngIf="form.manufacture_name.errors.required">Manufacturer name is required.</span>
+                          [items]="['150 KM', '300 KM', '600 KM']"
+                          bindLabel="label"
+                          formControlName="distanceCategory"
+                          [ngClass]="{ 'is-invalid': submit && form.distanceCategory.errors }"
+                        ></ng-select>
+                        <div *ngIf="submit && form.distanceCategory.errors" class="invalid-feedback">
+                          <span *ngIf="form.distanceCategory.errors.required">Distance category is required.</span>
                         </div>
                       </div>
+                
+                      <!-- Select Month -->
                       <div class="mb-3">
-                        <label for="manufacturerbrand">Add T-shirt</label>
-                        <ng-select [items]="['Yes','No']"></ng-select>
-                        <!-- <input id="manufacturerbrand" name="manufacturerbrand" type="text" class="form-control"
-                          formControlName="manufacture_brand" [ngClass]="{'is-invalid': submit &&
-                          form.manufacture_brand.errors}"> -->
-                        <div *ngIf="submit && form.manufacture_brand.errors" class="invalid-feedback">
-                          <span *ngIf="form.manufacture_brand.errors.required">Manufacturer brand is required.</span>
+                        <label for="month">Select Month</label>
+                        <ng-select
+                          [items]="['1st Nov - 30th Nov', '1st Dec - 31st Dec', '1st Jan - 31st Jan']"
+                          formControlName="month"
+                          [ngClass]="{ 'is-invalid': submit && form.month.errors }"
+                        ></ng-select>
+                        <div *ngIf="submit && form.month.errors" class="invalid-feedback">
+                          <span *ngIf="form.month.errors.required">Month selection is required.</span>
                         </div>
                       </div>
+                
+                      <!-- Add T-shirt -->
+                      <div class="mb-3">
+                        <label for="addTshirt">Add T-shirt</label>
+                        <ng-select
+                          [items]="['Yes', 'No']"
+                          formControlName="addTshirt"
+                          [ngClass]="{ 'is-invalid': submit && form.addTshirt.errors }"
+                        ></ng-select>
+                        <div *ngIf="submit && form.addTshirt.errors" class="invalid-feedback">
+                          <span *ngIf="form.addTshirt.errors.required">T-shirt selection is required.</span>
+                        </div>
+                      </div>
+                
+                      <!-- Price -->
                       <div class="mb-3">
                         <label for="price">Price</label>
                         <h6 class="text-success text-uppercase">{{productDetail[0].discount}} % Off</h6>
                         <h5 class="mb-4">Price : <span class="text-muted me-2"><del>₹{{productDetail[0].oriRate}}
                             </del></span> <b>₹{{productDetail[0].disRate}}</b></h5>
                       </div>
+                
+                      <!-- Quantity -->
                       <div class="mb-3">
-                        <label for="manufacturerbrand">Quantity</label>
-                      <input id="manufacturerbrand" name="manufacturerbrand" type="number" class="form-control"
-                      formControlName="manufacture_brand" [ngClass]="{'is-invalid': submit &&
-                        form.manufacture_brand.errors}">
-                      <div *ngIf="submit && form.manufacture_brand.errors" class="invalid-feedback">
-                        <span *ngIf="form.manufacture_brand.errors.required">Manufacturer brand is required.</span>
+                        <label for="quantity">Quantity</label>
+                        <input
+                          id="quantity"
+                          name="quantity"
+                          type="number"
+                          class="form-control"
+                          formControlName="quantity"
+                          [ngClass]="{ 'is-invalid': submit && form.quantity.errors }"
+                        />
+                        <div *ngIf="submit && form.quantity.errors" class="invalid-feedback">
+                          <span *ngIf="form.quantity.errors.required">Quantity is required.</span>
+                          <span *ngIf="form.quantity.errors.min">Minimum quantity is 1.</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  </div>
                   <div class="d-flex flex-wrap gap-2 mt-2">
                     <button type="submit" class="btn btn-primary">Add to cart</button>
-                    <button type="submit" class="btn btn-secondary">Cancel</button>
+                    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
                   </div>
                 </form>
+                
+       
 
 
                 <!-- <p class="text-muted mb-4">To achieve this, it would be necessary to have uniform grammar pronunciation

@@ -1,3 +1,7 @@
+
+<section class="header-space">
+
+</section>
 <div class="container-fluid">
 
   <!-- page title -->
@@ -21,28 +25,29 @@
               <tbody>
                 <tr *ngFor="let product of cartData">
                   <td>
-                    <img src="{{ product.image }}" alt="product-img" title="product-img" class="avatar-md" />
+                    <!-- <img src="{{ product.image }}" alt="product-img" title="product-img" class="avatar-md" /> -->
+                    <h5 class="font-size-14 text-truncate"><a routerLink="/ecommerce/product-detail/{{product.id}}"
+                      class="text-dark">{{ product.name }}</a></h5>
                   </td>
                   <td>
-                    <h5 class="font-size-14 text-truncate"><a routerLink="/ecommerce/product-detail"
-                        class="text-dark">{{ product.name }}</a></h5>
-                    <p class="mb-0">Color : <span class="fw-medium">{{ product.color }}</span></p>
+                    <h5 class="font-size-14 text-truncate">{{ product.distanceCategory }}</h5>
+                    <p class="mb-0">T-shirt : <span class="fw-medium">{{ product.addTshirt }}</span></p>
                   </td>
                   <td>
-                    {{ product.price }}
+                    {{ product.disRate }}
                   </td>
                   <td>
                     <div style="width: 120px;">
                       <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-                        <input type="number" [(ngModel)]="product.quantity" name="demo_vertical" class="form-control">
+                        <input type="number" [(ngModel)]="product.quantity" (change)="gettotal(product)" name="demo_vertical" class="form-control">
                       </div>
                     </div>
                   </td>
                   <td>
-                    {{ product.total }}
+                    {{ product.quantity * product.disRate }}
                   </td>
                   <td>
-                    <a href="javascript:void(0);" class="action-icon text-danger"> <i
+                    <a href="javascript:void(0);" class="action-icon text-danger" (click)="removeItem(product.id)"> <i
                         class="mdi mdi-trash-can font-size-18"></i></a>
                   </td>
                 </tr>
@@ -51,8 +56,8 @@
           </div>
           <div class="row mt-4">
             <div class="col-sm-6">
-              <a routerLink="/ecommerce/products" class="btn btn-secondary">
-                <i class="mdi mdi-arrow-left me-1"></i> Continue Shopping </a>
+              <!-- <a routerLink="/ecommerce/products" class="btn btn-secondary">
+                <i class="mdi mdi-arrow-left me-1"></i> Continue Shopping </a> -->
             </div> <!-- end col -->
             <div class="col-sm-6">
               <div class="text-sm-end mt-2 mt-sm-0">
@@ -65,7 +70,7 @@
       </div>
     </div>
     <div class="col-xl-4">
-      <div class="card">
+      <!-- <div class="card">
         <div class="card-body">
           <h5 class="card-title mb-4">Card Details</h5>
 
@@ -114,7 +119,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="card">
         <div class="card-body">
           <h4 class="card-title mb-3">Order Summary</h4>
@@ -124,24 +129,24 @@
               <tbody>
                 <tr>
                   <td>Grand Total :</td>
-                  <td>$ 1,857</td>
+                  <td>₹ {{BillTotal}}</td>
                 </tr>
-                <tr>
+                <!-- <tr>
                   <td>Discount : </td>
                   <td>- $ 157</td>
-                </tr>
-                <tr>
+                </tr> -->
+                <!-- <tr>
                   <td>Shipping Charge :</td>
                   <td>$ 25</td>
-                </tr>
-                <tr>
+                </tr> -->
+                <!-- <tr>
                   <td>Estimated Tax : </td>
                   <td>$ 19.22</td>
-                </tr>
-                <tr>
+                </tr> -->
+                <!-- <tr>
                   <th>Total :</th>
                   <th>$ 1744.22</th>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>

@@ -24,7 +24,7 @@ const routes: Routes = [
     component: IndependenceDayComponent
   },
   {
-    path: 'shop',
+    path: 'ecommerce',
     loadChildren:()=> import('./../../pages/ecommerce/ecommerce.module').then(m => m.EcommerceModule)
   },
 

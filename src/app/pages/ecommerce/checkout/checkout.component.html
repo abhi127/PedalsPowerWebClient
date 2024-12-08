@@ -1,10 +1,13 @@
+<section class="header-space">
+
+</section>
 <div class="container-fluid">
-  <app-page-title title="Checkout" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <!-- <app-page-title title="Checkout" [breadcrumbItems]="breadCrumbItems"></app-page-title> -->
   <div class="checkout-tabs">
     <div class="row">
       <div class="col-xl-2 col-sm-3">
-        <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-pills flex-column">
-          <li [ngbNavItem]="1">
+        <ul ngbNav #nav="ngbNav" [activeId]="activeId" class="nav-pills flex-column">
+          <li [ngbNavItem]="1" *ngIf="!IsAddressSaved">
             <a ngbNavLink>
               <i class="bx bxs-truck d-block check-nav-icon mt-4 mb-2"></i>
               <p class="fw-bold mb-4">Shipping Info</p>
@@ -18,56 +21,105 @@
                       <div>
                         <h4 class="card-title">Shipping information</h4>
                         <p class="card-title-desc">Fill all information below</p>
-                        <form>
+                        <form [formGroup]="addressForm" (ngSubmit)="onSubmitAddress()">
                           <div class="row mb-4">
                             <label for="billing-name" class="col-md-2 col-form-label">Name</label>
                             <div class="col-md-10">
-                              <input type="text" class="form-control" id="billing-name" placeholder="Enter your name">
+                              <input type="text" class="form-control" id="billing-name" formControlName="name"
+                                placeholder="Enter your name">
+                              <div *ngIf="addressForm.get('name').touched && addressForm.get('name').invalid"
+                                class="text-danger">
+                                <small *ngIf="addressForm.get('name').hasError('required')">Name is required.</small>
+                              </div>
                             </div>
                           </div>
+
                           <div class="row mb-4">
                             <label for="billing-email-address" class="col-md-2 col-form-label">Email Address</label>
                             <div class="col-md-10">
                               <input type="email" class="form-control" id="billing-email-address"
-                                placeholder="Enter your email">
-                            </div>
-                          </div>
-                          <div class="row mb-4">
-                            <label for="billing-phone" class="col-md-2 col-form-label">Phone</label>
-                            <div class="col-md-10">
-                              <input type="text" class="form-control" id="billing-phone"
-                                placeholder="Enter your Phone no.">
-                            </div>
-                          </div>
-                          <div class="row mb-4">
-                            <label for="billing-address" class="col-md-2 col-form-label">Address</label>
-                            <div class="col-md-10">
-                              <textarea class="form-control" id="billing-address" rows="3"
-                                placeholder="Enter full address"></textarea>
-                            </div>
-                          </div>
-                          <div class="row mb-4">
-                            <label class="col-md-2 col-form-label">Country</label>
-                            <div class="col-md-10">
-                              <ng-select [items]="selectValue"></ng-select>
+                                formControlName="email" placeholder="Enter your email" readonly>
+                              <div *ngIf="addressForm.get('email').touched && addressForm.get('email').invalid"
+                                class="text-danger">
+                                <small *ngIf="addressForm.get('email').hasError('required')">Email is required.</small>
+                                <small *ngIf="addressForm.get('email').hasError('email')">Enter a valid email
+                                  address.</small>
+                              </div>
                             </div>
                           </div>
 
                           <div class="row mb-4">
-                            <label class="col-md-2 col-form-label">States</label>
+                            <label for="billing-phone" class="col-md-2 col-form-label">Phone</label>
                             <div class="col-md-10">
-                              <ng-select [items]="stateValue"></ng-select>
+                              <input type="text" class="form-control" id="billing-phone" formControlName="phone"
+                                placeholder="Enter your Phone no.">
+                              <div *ngIf="addressForm.get('phone').touched && addressForm.get('phone').invalid"
+                                class="text-danger">
+                                <small *ngIf="addressForm.get('phone').hasError('required')">Phone number is
+                                  required.</small>
+                                <small *ngIf="addressForm.get('phone').hasError('pattern')">Phone number must be 10
+                                  digits.</small>
+                              </div>
                             </div>
                           </div>
+
+                          <div class="row mb-4">
+                            <label for="billing-address" class="col-md-2 col-form-label">Address</label>
+                            <div class="col-md-10">
+                              <textarea class="form-control" id="billing-address" formControlName="address" rows="3"
+                                placeholder="Enter full address"></textarea>
+                              <div *ngIf="addressForm.get('address').touched && addressForm.get('address').invalid"
+                                class="text-danger">
+                                <small *ngIf="addressForm.get('address').hasError('required')">Address is
+                                  required.</small>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row mb-4">
+                            <label class="col-md-2 col-form-label">Country</label>
+                            <div class="col-md-10">
+                              <!-- <ng-select [items]="selectValue" formControlName="country"
+                                placeholder="Select a country"></ng-select> -->
+                              <input type="text" class="form-control" id="country" formControlName="country">
+                              <div *ngIf="addressForm.get('country').touched && addressForm.get('country').invalid"
+                                class="text-danger">
+                                <small *ngIf="addressForm.get('country').hasError('required')">Country is
+                                  required.</small>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row mb-4">
+                            <label class="col-md-2 col-form-label">State</label>
+                            <div class="col-md-10">
+                              <!-- <ng-select [items]="stateValue" formControlName="state"
+                                placeholder="Select a state"></ng-select> -->
+                              <input type="text" class="form-control" id="state" formControlName="state">
+                              <div *ngIf="addressForm.get('state').touched && addressForm.get('state').invalid"
+                                class="text-danger">
+                                <small *ngIf="addressForm.get('state').hasError('required')">State is required.</small>
+                              </div>
+                            </div>
+                          </div>
+
                           <div class="row mb-0">
                             <label for="example-textarea" class="col-md-2 col-form-label">Order Notes:</label>
                             <div class="col-md-10">
-                              <textarea class="form-control" id="example-textarea" rows="3"
+                              <textarea class="form-control" id="example-textarea" formControlName="notes" rows="3"
                                 placeholder="Write some note.."></textarea>
                             </div>
                           </div>
 
+                          <div class="row mt-4">
+                            <div class="col-md-10 offset-md-2">
+                              <button type="submit" class="btn btn-primary"
+                                [disabled]="addressForm.invalid">Submit</button>
+                            </div>
+                          </div>
                         </form>
+
+
                       </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-payment" role="tabpanel"
@@ -217,7 +269,7 @@
               </div>
             </ng-template>
           </li>
-          <li [ngbNavItem]="2">
+          <!-- <li [ngbNavItem]="2">
             <a ngbNavLink>
               <i class="bx bx-money d-block check-nav-icon mt-4 mb-2"></i>
               <p class="fw-bold mb-4">Payment Info</p>
@@ -278,16 +330,16 @@
                 <div class="col-sm-6">
                   <a routerLink="/ecommerce/cart" class="btn text-muted d-none d-sm-inline-block btn-link">
                     <i class="mdi mdi-arrow-left me-1"></i> Back to Shopping Cart </a>
-                </div> <!-- end col -->
+                </div> 
                 <div class="col-sm-6">
                   <div class="text-sm-end">
                     <a routerLink="/ecommerce/checkout" class="btn btn-success">
                       <i class="mdi mdi-truck-fast me-1"></i> Proceed to Shipping </a>
                   </div>
-                </div> <!-- end col -->
+                </div> 
               </div>
             </ng-template>
-          </li>
+          </li> -->
           <li [ngbNavItem]="3">
             <a ngbNavLink>
               <i class="bx bx-badge-check d-block check-nav-icon mt-4 mb-2"></i>
@@ -310,7 +362,20 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            <tr *ngFor="let product of Checkoutcart">
+                              <td>
+                                {{product.name}}
+                              </td>
+                              <td>
+                                <h5 class="font-size-14 text-truncate">{{ product.distanceCategory }}</h5>
+                                <p class="mb-0">T-shirt : <span class="fw-medium">{{ product.addTshirt }}</span></p>
+                                <p class="text-muted mb-0">₹ {{product.disRate}} x {{product.quantity}}</p>
+                              </td>
+                              <td>
+                                {{ product.quantity * product.disRate }}
+                              </td>
+                            </tr>
+                            <!-- <tr>
                               <th scope="row"><img src="assets/images/product/img-1.png" alt="product-img"
                                   title="product-img" class="avatar-md"></th>
                               <td>
@@ -329,30 +394,31 @@
                                 <p class="text-muted mb-0">$ 225 x 1</p>
                               </td>
                               <td>$ 225</td>
-                            </tr>
+                            </tr> -->
                             <tr>
                               <td colspan="2">
                                 <h6 class="m-0 text-end">Sub Total:</h6>
                               </td>
                               <td>
-                                $ 675
+                                ₹ {{BillTotal}}
                               </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                               <td colspan="3">
                                 <div class="bg-soft bg-primary p-3 rounded">
                                   <h5 class="font-size-14 text-primary mb-0"><i class="fas fa-shipping-fast me-2"></i>
                                     Shipping
-                                    <span class="float-end">Free</span></h5>
+                                    <span class="float-end">Free</span>
+                                  </h5>
                                 </div>
                               </td>
-                            </tr>
+                            </tr> -->
                             <tr>
                               <td colspan="2">
                                 <h6 class="m-0 text-end">Total:</h6>
                               </td>
                               <td>
-                                $ 675
+                                ₹ {{BillTotal}}
                               </td>
                             </tr>
                           </tbody>
@@ -367,10 +433,10 @@
                         <i class="mdi mdi-arrow-left me-1"></i> Back to Shopping Cart </a>
                     </div> <!-- end col -->
                     <div class="col-sm-6">
-                      <div class="text-end">
+                      <!-- <div class="text-end">
                         <a routerLink="/ecommerce/checkout" class="btn btn-success">
                           <i class="mdi mdi-truck-fast me-1"></i> Proceed to Shipping </a>
-                      </div>
+                      </div> -->
                     </div> <!-- end col -->
                   </div>
                 </div>

@@ -40,6 +40,8 @@ export class CyptolandingComponent implements OnInit {
   activeSubmenuIndex: number | null = null;
   activeSubSubmenuIndex: { [key: number]: number | null } = {};
   rlink: boolean = false;
+  isLoggedin= this.authService.isLoggedIn()
+  name = sessionStorage.getItem('name') ?? 'User'
 
   constructor(
     private authService: AuthenticationService,
@@ -109,7 +111,8 @@ export class CyptolandingComponent implements OnInit {
     if (environment.defaultauth === 'firebase') {
       this.authService.logout();
     } else {
-      this.authFackservice.logout();
+      // this.authFackservice.logout();
+      this.authService.logout()
     }
     this.router.navigate(['/account/login']);
   }

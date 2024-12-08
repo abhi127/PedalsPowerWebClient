@@ -16,6 +16,13 @@
     transform: scale(1)
   }
 }
+.row{
+  --bs-gutter-x:0 !important
+}
+.header-space{
+  height: 11vh;
+  background-color: var(--bs-gray-500);
+ }
 
 .carousel-item {
   transition: opacity 0.7s ease !important;
